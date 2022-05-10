@@ -1,0 +1,31 @@
+[0]<stdout>:Model: vgg16
+[0]<stdout>:Batch size: 16
+[0]<stdout>:Number of GPUs: 2
+[0]<stdout>:Running warmup...
+[0]<stderr>:Terminated
+[1]<stderr>:Terminated
+Process 0 exit with status code 143.
+Process 1 exit with status code 143.
+Traceback (most recent call last):
+  File "/home/simon/.local/bin/horovodrun", line 11, in <module>
+    sys.exit(run_commandline())
+  File "/usr/lib/python3/dist-packages/horovod/runner/launch.py", line 770, in run_commandline
+    _run(args)
+  File "/usr/lib/python3/dist-packages/horovod/runner/launch.py", line 760, in _run
+    return _run_static(args)
+  File "/usr/lib/python3/dist-packages/horovod/runner/launch.py", line 617, in _run_static
+    _launch_job(args, settings, nics, command)
+  File "/usr/lib/python3/dist-packages/horovod/runner/launch.py", line 733, in _launch_job
+    args.verbose)
+  File "/usr/lib/python3/dist-packages/horovod/runner/launch.py", line 706, in run_controller
+    gloo_run()
+  File "/usr/lib/python3/dist-packages/horovod/runner/launch.py", line 722, in gloo_run_fn
+    gloo_run(settings, nics, env, driver_ip, command)
+  File "/usr/lib/python3/dist-packages/horovod/runner/gloo_run.py", line 284, in gloo_run
+    launch_gloo(command, exec_command, settings, nics, env, server_ip)
+  File "/usr/lib/python3/dist-packages/horovod/runner/gloo_run.py", line 271, in launch_gloo
+    .format(name=name, code=exit_code))
+RuntimeError: Horovod detected that one or more processes exited with non-zero status, thus causing the job to be terminated. The first process to do so was:
+Process name: 0
+Exit code: 143
+
